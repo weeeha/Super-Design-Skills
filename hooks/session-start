@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# SessionStart hook for super-design-skills plugin
+
+set -euo pipefail
+
+# Determine plugin root directory
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PLUGIN_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+# Read using-design-skills content
+using_skill_content=$(cat "${PLUGIN_ROOT}/skills/using-design-skills/SKILL.md" 2>&1 || echo "Error reading using-design-skills skill")
+
+# Escape string for JSON embedding using bash parameter substitution
+escape_for_json() {
+    local s="$1"
+    s="${s//\\/\\\\}"
+    s="${s//\"/\\\"}"
+    s="${s//$'\n'/\\n}"
+    s="${s//$'\r'/\\r}"
+    s="${s//$'\t'/\\t}"
+    printf '%s' "$s"
+}
+
+using_skill_escaped=$(escape_for_json "$using_skill_content")
+session_context="<EXTREMELY_IMPORTANT>\nYou have design superpowers.\n\n**Below is the full content of your 'super-design-skills:using-design-skills' skill - your introduction to the design methodology. For all other skills, use the 'Skill' tool:**\n\n${using_skill_escaped}\n</EXTREMELY_IMPORTANT>"
+
+# Output context injection as JSON.
+# Claude Code reads hookSpecificOutput.additionalContext.
+# Uses printf instead of heredoc to work around bash 5.3+ heredoc hang.
+printf '{\n  "hookSpecificOutput": {\n    "hookEventName": "SessionStart",\n    "additionalContext": "%s"\n  }\n}\n' "$session_context"
+
+exit 0

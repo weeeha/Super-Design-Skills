@@ -1,0 +1,23 @@
+{
+  "name": "super-design-skills",
+  "description": "Product-design methodology and skills for Claude Code: discovery, exploring options, critique, design QA, stakeholder presentation, handoff, and domain ramp-up",
+  "version": "0.1.0",
+  "author": {
+    "name": "Nick Vyhouski",
+    "email": "mvyhouski@gmail.com"
+  },
+  "homepage": "https://github.com/weeeha/Super-Design-Skills",
+  "repository": "https://github.com/weeeha/Super-Design-Skills",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "product-design",
+    "ux",
+    "skills",
+    "methodology",
+    "figma",
+    "design-qa",
+    "stakeholder-presentation",
+    "design-critique"
+  ]
+}
