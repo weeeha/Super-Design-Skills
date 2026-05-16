@@ -1,6 +1,6 @@
 ---
 name: writing-design-skills
-description: Use when creating, editing, or testing skills in this plugin - super-design-skills
+description: Use when creating, editing, or testing skills in this plugin - SuperDesign
 ---
 
 # Writing Design Skills

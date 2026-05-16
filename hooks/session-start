@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SessionStart hook for super-design-skills plugin
+# SessionStart hook for SuperDesign plugin
 
 set -euo pipefail
 
@@ -22,7 +22,7 @@ escape_for_json() {
 }
 
 using_skill_escaped=$(escape_for_json "$using_skill_content")
-session_context="<EXTREMELY_IMPORTANT>\nYou have design superpowers.\n\n**Below is the full content of your 'super-design-skills:using-design-skills' skill - your introduction to the design methodology. For all other skills, use the 'Skill' tool:**\n\n${using_skill_escaped}\n</EXTREMELY_IMPORTANT>"
+session_context="<EXTREMELY_IMPORTANT>\nYou have design superpowers.\n\n**Below is the full content of your 'SuperDesign:using-design-skills' skill - your introduction to the design methodology. For all other skills, use the 'Skill' tool:**\n\n${using_skill_escaped}\n</EXTREMELY_IMPORTANT>"
 
 # Output context injection as JSON.
 # Claude Code reads hookSpecificOutput.additionalContext.

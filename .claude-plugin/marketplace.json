@@ -1,5 +1,5 @@
 {
-  "name": "super-design-skills",
+  "name": "SuperDesign",
   "description": "Product-design methodology skills marketplace",
   "owner": {
     "name": "Nick Vyhouski",
@@ -7,7 +7,7 @@
   },
   "plugins": [
     {
-      "name": "super-design-skills",
+      "name": "SuperDesign",
       "description": "Product-design methodology and skills for Claude Code",
       "version": "0.1.0",
       "source": "./",
