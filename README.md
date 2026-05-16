@@ -14,9 +14,20 @@ Where superpowers enforces test-driven development, this plugin enforces **optio
 
 ## Installation
 
-This is a local plugin for Claude Code. Once Claude Code's plugin system supports it (or via `/plugin` install), point it at this directory. Until then, the plugin can be loaded directly from the local filesystem.
+Register the marketplace, then install:
 
-The plugin uses a `SessionStart` hook to inject the [`using-design-skills`](skills/using-design-skills/SKILL.md) meta-skill at the start of every session. That meta-skill teaches the agent to invoke the other skills automatically when they're relevant.
+```bash
+/plugin marketplace add weeeha/Super-Design-Skills
+/plugin install SuperDesign@SuperDesign-marketplace
+```
+
+Restart your session. The plugin's `SessionStart` hook injects the [`using-design-skills`](skills/using-design-skills/SKILL.md) meta-skill at the start of every session, which teaches Claude to invoke the other skills automatically when they're relevant.
+
+Verify it loaded — ask Claude:
+
+> "What design skills do you have available?"
+
+You should see all 12 skills listed under the `SuperDesign:` namespace.
 
 ## Skills
 
