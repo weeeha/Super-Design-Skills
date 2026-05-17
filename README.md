@@ -117,6 +117,19 @@ Pick `prototyping` when you need a clickable artifact for testing/demos. Pick `f
 
 The version is mirrored across `package.json`, `.claude-plugin/plugin.json`, and `.claude-plugin/marketplace.json`. The script keeps them in sync.
 
+## Companion: SuperLead
+
+If you're a design manager (or designer who also manages), check out [SuperLead](https://github.com/weeeha/Super-Design-Lead) — the same architecture applied to design leadership instead of design work. 1:1 prep, career conversations, feedback delivery, hiring loops, coaching.
+
+```bash
+/plugin marketplace add weeeha/Super-Design-Lead
+/plugin install SuperLead@SuperLead-marketplace
+```
+
+The two plugins share the disciplinary spine — *never present one option, always present three.* SuperDesign uses it for design directions; SuperLead uses it for career paths. Same psychology, same trap, same fix.
+
+When both are installed, skills cross-reference each other — e.g., `SuperLead:giving-feedback-to-a-report` (manager-side of feedback delivery) pairs with `SuperDesign:critiquing` (the work itself).
+
 ## Roadmap (open questions, not promises)
 
 - Real-usage iteration on the novel skills (`design-qa`, `presenting`, `learning-a-domain`, `subagent-driven-design-execution`)
