@@ -44,6 +44,7 @@ You should see all 12 skills listed under the `SuperDesign:` namespace.
 | [`handoff`](skills/handoff/SKILL.md) | Engineering handoff — states, edge cases, motion, copy, redlines, acceptance criteria |
 | [`verifying-before-shipping`](skills/verifying-before-shipping/SKILL.md) | Verification pass before declaring "done" — process, design, system, stakeholder, honesty checks (**rigid**) |
 | [`prototyping`](skills/prototyping/SKILL.md) | Clickable code prototype from Figma — Vite + React + Tailwind + shadcn. For user testing, demos, de-risking |
+| [`figma-1to1`](skills/figma-1to1/SKILL.md) | Pixel-perfect production-grade implementation from Figma. TDD-for-design: extract tokens, build atom-up, visually verify each step (**rigid**) |
 | [`subagent-driven-design-execution`](skills/subagent-driven-design-execution/SKILL.md) | Parallel development of 3+ options via subagents — experimental, v0.1 |
 
 ### Learning
@@ -81,7 +82,8 @@ writing-spec (light PRD)   [optional, recommended for anything cross-functional]
 critiquing  ←→  design-qa
     ↓
         (optional, any time)
-        prototyping (clickable code prototype)
+        prototyping (throwaway clickable code)
+        figma-1to1 (pixel-perfect production code with verification loop)
     ↓
 verifying-before-shipping
     ↓
@@ -90,7 +92,11 @@ presenting (to stakeholders)
 handoff (to engineering)
 ```
 
-`prototyping` can be invoked anywhere — after `exploring-options` to test a direction in code, before `presenting` for a clickable demo, or before `handoff` to de-risk what engineering is about to build.
+`prototyping` and `figma-1to1` both turn Figma into code, but at different fidelity bars:
+- `prototyping` — clickable, throwaway, "feels right is fine", ~30 min
+- `figma-1to1` — production-grade, pixel-perfect, visual verification at each step, slower but matches Figma exactly
+
+Pick `prototyping` when you need a clickable artifact for testing/demos. Pick `figma-1to1` when the code is the implementation that ships (or is the visual baseline for ship).
 
 `learning-a-domain` is sideways — invoke it whenever you hit an unfamiliar vertical, at any point in the flow.
 
