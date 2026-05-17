@@ -43,6 +43,7 @@ You should see all 12 skills listed under the `SuperDesign:` namespace.
 | [`presenting`](skills/presenting/SKILL.md) | Stakeholder narrative — script + decision ask for six meeting archetypes |
 | [`handoff`](skills/handoff/SKILL.md) | Engineering handoff — states, edge cases, motion, copy, redlines, acceptance criteria |
 | [`verifying-before-shipping`](skills/verifying-before-shipping/SKILL.md) | Verification pass before declaring "done" — process, design, system, stakeholder, honesty checks (**rigid**) |
+| [`prototyping`](skills/prototyping/SKILL.md) | Clickable code prototype from Figma — Vite + React + Tailwind + shadcn. For user testing, demos, de-risking |
 | [`subagent-driven-design-execution`](skills/subagent-driven-design-execution/SKILL.md) | Parallel development of 3+ options via subagents — experimental, v0.1 |
 
 ### Learning
@@ -79,12 +80,17 @@ writing-spec (light PRD)   [optional, recommended for anything cross-functional]
     ↓
 critiquing  ←→  design-qa
     ↓
+        (optional, any time)
+        prototyping (clickable code prototype)
+    ↓
 verifying-before-shipping
     ↓
 presenting (to stakeholders)
     ↓
 handoff (to engineering)
 ```
+
+`prototyping` can be invoked anywhere — after `exploring-options` to test a direction in code, before `presenting` for a clickable demo, or before `handoff` to de-risk what engineering is about to build.
 
 `learning-a-domain` is sideways — invoke it whenever you hit an unfamiliar vertical, at any point in the flow.
 
