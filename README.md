@@ -4,7 +4,7 @@ A product-design methodology for Claude Code. Skills that help product designers
 
 **This is not a replacement for existing design skills.** It's a methodology layer that wraps around the design work. Where Anthropic's `design:*` skills, `figma-*` skills, and your tools (Figma, prototyping, etc.) handle the *what*, these skills handle the *how* — the discipline around the work.
 
-**Status: v0.1.** Functional skeleton. Three skills fully written, three moderately, three as light scaffolds. Iterate from real usage.
+**Status: v0.4.0.** 15 skills (13 methodology skills plus 2 meta skills). Iterate from real usage.
 
 ## Inspiration
 
@@ -27,7 +27,7 @@ Verify it loaded — ask Claude:
 
 > "What design skills do you have available?"
 
-You should see all 12 skills listed under the `SuperDesign:` namespace.
+You should see all 15 skills listed under the `SuperDesign:` namespace.
 
 ## Skills
 
@@ -109,8 +109,8 @@ Pick `prototyping` when you need a clickable artifact for testing/demos. Pick `f
 
 - **Make Claude a better visual designer.** Skills shape *process*, not aesthetic outcome. For visual work, lean on Anthropic's `design:*` skills, the Figma MCP, shadcn, and your design system.
 - **Replace your design tools.** Figma, FigJam, Loom, Notion, Linear — these all stay. The plugin sits beside them.
-- **Cover non-product-design work.** Brand, marketing, illustration, motion graphics — out of scope for v0.1.
-- **Support multiple harnesses.** Claude Code only at v0.1. Cursor / Codex / Gemini support is future work if the methodology proves out.
+- **Cover non-product-design work.** Brand, marketing, illustration, motion graphics - out of scope for now.
+- **Support multiple harnesses.** Claude Code only for now. Cursor / Codex / Gemini support is future work if the methodology proves out.
 
 ## Versioning
 
