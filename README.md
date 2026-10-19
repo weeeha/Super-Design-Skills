@@ -47,6 +47,7 @@ You should see all 15 skills listed under the `SuperDesign:` namespace.
 | [`figma-1to1`](skills/figma-1to1/SKILL.md) | Pixel-perfect production-grade implementation from Figma. TDD-for-design: extract tokens, build atom-up, visually verify each step (**rigid**) |
 | [`writing-case-study`](skills/writing-case-study/SKILL.md) | Turn shipped work into portfolio piece + resume bullet + LinkedIn post + interview pitch. Q&A-driven, pulls from spec/options/presenting artifacts |
 | [`subagent-driven-design-execution`](skills/subagent-driven-design-execution/SKILL.md) | Parallel development of 3+ options via subagents — experimental, v0.1 |
+| [`designing-model-output`](skills/designing-model-output/SKILL.md) | Surfaces that render model output - streaming, Markdown, reasoning, tool calls, citations, honesty states. Event-to-component map plus eight passes |
 
 ### Learning
 
