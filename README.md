@@ -4,7 +4,7 @@ A product-design methodology for Claude Code. Skills that help product designers
 
 **This is not a replacement for existing design skills.** It's a methodology layer that wraps around the design work. Where Anthropic's `design:*` skills, `figma-*` skills, and your tools (Figma, prototyping, etc.) handle the *what*, these skills handle the *how* — the discipline around the work.
 
-**Status: v0.4.0.** 15 skills (13 methodology skills plus 2 meta skills). Iterate from real usage.
+**Status: v0.5.0.** 16 skills (14 methodology skills plus 2 meta skills). Iterate from real usage.
 
 ## Inspiration
 
@@ -47,6 +47,7 @@ You should see all 15 skills listed under the `SuperDesign:` namespace.
 | [`figma-1to1`](skills/figma-1to1/SKILL.md) | Pixel-perfect production-grade implementation from Figma. TDD-for-design: extract tokens, build atom-up, visually verify each step (**rigid**) |
 | [`writing-case-study`](skills/writing-case-study/SKILL.md) | Turn shipped work into portfolio piece + resume bullet + LinkedIn post + interview pitch. Q&A-driven, pulls from spec/options/presenting artifacts |
 | [`subagent-driven-design-execution`](skills/subagent-driven-design-execution/SKILL.md) | Parallel development of 3+ options via subagents — experimental, v0.1 |
+| [`designing-model-output`](skills/designing-model-output/SKILL.md) | Surfaces that render model output - streaming, Markdown, reasoning, tool calls, citations, honesty states. Event-to-component map plus eight passes |
 
 ### Learning
 
