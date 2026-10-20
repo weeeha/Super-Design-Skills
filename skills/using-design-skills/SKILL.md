@@ -46,12 +46,13 @@ When multiple skills could apply:
 "Capture the spec for X" → `writing-spec`.
 "Check this design" → `design-qa` or `critiquing`.
 "Prep for a stakeholder meeting" → `presenting`.
+"Review or design an AI chat, assistant, agent or playground UI: streamed answers, reasoning, tool calls, citations" → `designing-model-output` first. It comes before `handoff` and `design-qa` even when the request says "before handing it to engineering", because those two do not know a model stream's states.
 
 ## Skill Types
 
 **Rigid** (`brainstorming`, `exploring-options`): Follow the rules. Don't adapt away the discipline. These exist because designers under pressure skip them.
 
-**Flexible** (`critiquing`, `design-qa`, `writing-spec`, `presenting`, `handoff`, `learning-a-domain`): Adapt principles to context.
+**Flexible** (`critiquing`, `design-qa`, `writing-spec`, `presenting`, `handoff`, `learning-a-domain`, `designing-model-output`): Adapt principles to context.
 
 The skill itself tells you which.
 

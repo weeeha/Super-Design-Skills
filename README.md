@@ -4,7 +4,7 @@ A product-design methodology for Claude Code. Skills that help product designers
 
 **This is not a replacement for existing design skills.** It's a methodology layer that wraps around the design work. Where Anthropic's `design:*` skills, `figma-*` skills, and your tools (Figma, prototyping, etc.) handle the *what*, these skills handle the *how* — the discipline around the work.
 
-**Status: v0.5.0.** 16 skills (14 methodology skills plus 2 meta skills). Iterate from real usage.
+**Status: v0.5.1.** 16 skills (14 methodology skills plus 2 meta skills). Iterate from real usage.
 
 ## Inspiration
 
