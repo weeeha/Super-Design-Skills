@@ -1,5 +1,13 @@
 # Super Design Skills
 
+**Problem.** Figma, prototyping tools and Anthropic's `design:*` skills cover the what of design work, and little in Claude Code holds a designer to the how: framing, comparing directions, critique, QA and handoff.
+
+**Idea.** A methodology layer of skills built on one rigid rule: never present one direction, always present three. A SessionStart hook injects a meta-skill so Claude picks up the right skill without being asked.
+
+**Built.** A Claude Code plugin (v0.5.1) with 16 skills (14 methodology, 2 meta), installable from a plugin marketplace and licensed MIT. 19 commits on 6 days, May 16 to Oct 20, 2026.
+
+**Decision.** The skills shape process and leave visual quality to Anthropic's `design:*` skills, the Figma MCP, shadcn and your own design system, instead of trying to make Claude a better visual designer.
+
 A product-design methodology for Claude Code. Skills that help product designers frame problems, explore options, critique work, QA visuals, prep for stakeholder meetings, hand off to engineering, and ramp into new domains.
 
 **This is not a replacement for existing design skills.** It's a methodology layer that wraps around the design work. Where Anthropic's `design:*` skills, `figma-*` skills, and your tools (Figma, prototyping, etc.) handle the *what*, these skills handle the *how* — the discipline around the work.
