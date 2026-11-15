@@ -4,7 +4,7 @@
 
 **Idea.** A methodology layer of skills built on one rigid rule: never present one direction, always present three. A SessionStart hook injects a meta-skill so Claude picks up the right skill without being asked.
 
-**Built.** A Claude Code plugin (v0.5.1) with 16 skills (14 methodology, 2 meta), installable from a plugin marketplace and licensed MIT. 19 commits on 6 days, May 16 to Oct 20, 2026.
+**Built.** A Claude Code plugin (v0.6.0) with 22 skills (20 methodology, 2 meta), installable from a plugin marketplace and licensed MIT. 19 commits on 6 days, May 16 to Oct 20, 2026.
 
 **Decision.** The skills shape process and leave visual quality to Anthropic's `design:*` skills, the Figma MCP, shadcn and your own design system, instead of trying to make Claude a better visual designer.
 
@@ -12,7 +12,7 @@ A product-design methodology for Claude Code. Skills that help product designers
 
 **This is not a replacement for existing design skills.** It's a methodology layer that wraps around the design work. Where Anthropic's `design:*` skills, `figma-*` skills, and your tools (Figma, prototyping, etc.) handle the *what*, these skills handle the *how* — the discipline around the work.
 
-**Status: v0.5.1.** 16 skills (14 methodology skills plus 2 meta skills). Iterate from real usage.
+**Status: v0.6.0.** 22 skills (20 methodology skills plus 2 meta skills). Iterate from real usage.
 
 ## Inspiration
 
@@ -35,7 +35,7 @@ Verify it loaded — ask Claude:
 
 > "What design skills do you have available?"
 
-You should see all 15 skills listed under the `SuperDesign:` namespace.
+You should see all 22 skills listed under the `SuperDesign:` namespace.
 
 ## Skills
 
@@ -45,13 +45,15 @@ You should see all 15 skills listed under the `SuperDesign:` namespace.
 |---|---|
 | [`brainstorming`](skills/brainstorming/SKILL.md) | Dialogue-first front-end of any project — frames problem, refines through questions, aligns on direction (**rigid**) |
 | [`exploring-options`](skills/exploring-options/SKILL.md) | Forces 3+ distinct directions, blocks single-option proposals (**rigid**) |
+| [`sketching`](skills/sketching/SKILL.md) | Low-fidelity layouts, flows, concept maps and storyboards before anything polished. Three sketches that differ in structure, in chat, FigJam or Figma |
 | [`writing-spec`](skills/writing-spec/SKILL.md) | Captures approved direction as a light PRD / design spec (1-2 pages) |
 | [`critiquing`](skills/critiquing/SKILL.md) | Conceptual review — fit, hierarchy, intent, narrative, edge cases |
 | [`design-qa`](skills/design-qa/SKILL.md) | Visual QA — alignment, spacing, type, contrast, states, tokens. Figma or screenshot |
-| [`presenting`](skills/presenting/SKILL.md) | Stakeholder narrative — script + decision ask for six meeting archetypes |
+| [`meeting-pack`](skills/meeting-pack/SKILL.md) | One-page prep for any meeting - what was decided last time (with sources), what changed, decisions needed, likely questions |
+| [`presenting`](skills/presenting/SKILL.md) | Stakeholder narrative — script + decision ask for six meeting archetypes, plus a slide list when the meeting needs a deck |
 | [`handoff`](skills/handoff/SKILL.md) | Engineering handoff — states, edge cases, motion, copy, redlines, acceptance criteria |
 | [`verifying-before-shipping`](skills/verifying-before-shipping/SKILL.md) | Verification pass before declaring "done" — process, design, system, stakeholder, honesty checks (**rigid**) |
-| [`prototyping`](skills/prototyping/SKILL.md) | Clickable code prototype from Figma — Vite + React + Tailwind + shadcn. For user testing, demos, de-risking |
+| [`prototyping`](skills/prototyping/SKILL.md) | Clickable code prototype from Figma, screenshots, a sketch, an idea or an existing app — Vite + React + Tailwind + shadcn. For user testing, demos, de-risking |
 | [`figma-1to1`](skills/figma-1to1/SKILL.md) | Pixel-perfect production-grade implementation from Figma. TDD-for-design: extract tokens, build atom-up, visually verify each step (**rigid**) |
 | [`writing-case-study`](skills/writing-case-study/SKILL.md) | Turn shipped work into portfolio piece + resume bullet + LinkedIn post + interview pitch. Q&A-driven, pulls from spec/options/presenting artifacts |
 | [`subagent-driven-design-execution`](skills/subagent-driven-design-execution/SKILL.md) | Parallel development of 3+ options via subagents — experimental, v0.1 |
@@ -62,6 +64,15 @@ You should see all 15 skills listed under the `SuperDesign:` namespace.
 | Skill | What it does |
 |---|---|
 | [`learning-a-domain`](skills/learning-a-domain/SKILL.md) | Designer's-eye summary of an unfamiliar vertical — diagram + brief + skill-pointer |
+
+### Research
+
+| Skill | What it does |
+|---|---|
+| [`researching`](skills/researching/SKILL.md) | Desk research: pattern research, product teardowns, user voice and references - dated evidence, then three implications for the design |
+| [`usability-testing`](skills/usability-testing/SKILL.md) | Plan, run and analyze tests with real people - situational tasks, a note grid, issues ranked by severity and participants |
+| [`reading-analytics`](skills/reading-analytics/SKILL.md) | Usage numbers for one flow, read from a design question - funnel, biggest loss, hypotheses with the cheapest check |
+| [`analyzing-interviews`](skills/analyzing-interviews/SKILL.md) | Transcripts into checkable themes - exact quotes, counts by participant, contradictions kept, implications for the design |
 
 ### Meta
 
@@ -85,6 +96,8 @@ brainstorming  ──invokes──→  exploring-options (3+ directions)
     ↓                              ↓
     ↓              (optional)  subagent-driven-design-execution
     ↓                              ↓
+sketching (low-fi layouts and flows, three of each)
+    ↓
 writing-spec (light PRD)   [optional, recommended for anything cross-functional]
     ↓
 [design in Figma / your tools]
@@ -97,7 +110,7 @@ critiquing  ←→  design-qa
     ↓
 verifying-before-shipping
     ↓
-presenting (to stakeholders)
+meeting-pack (before any meeting)  ──then──→  presenting (to stakeholders)
     ↓
 handoff (to engineering)
     ↓
@@ -113,6 +126,10 @@ writing-case-study (portfolio piece + resume bullet + LinkedIn post + interview 
 Pick `prototyping` when you need a clickable artifact for testing/demos. Pick `figma-1to1` when the code is the implementation that ships (or is the visual baseline for ship).
 
 `learning-a-domain` is sideways — invoke it whenever you hit an unfamiliar vertical, at any point in the flow.
+
+`researching` is sideways too: it looks at specific products, patterns and user feedback, usually before `brainstorming` or `exploring-options`. `meeting-pack` applies to every meeting, including ones where no design work is shown.
+
+The research skills split by the kind of evidence: `usability-testing` for what people can do with the design, `reading-analytics` for how many do it, `analyzing-interviews` for what they say about their work. Each points to the others for the question it cannot answer.
 
 ## What This Doesn't Try To Do
 
@@ -146,8 +163,8 @@ When both are installed, skills cross-reference each other — e.g., `SuperLead:
 
 ## Roadmap (open questions, not promises)
 
-- Real-usage iteration on the novel skills (`design-qa`, `presenting`, `learning-a-domain`, `subagent-driven-design-execution`)
-- A `presenting` companion that drafts slides, not just scripts
+- Real-usage iteration on the novel skills (`design-qa`, `presenting`, `learning-a-domain`, `subagent-driven-design-execution`, and the v0.6.0 additions `meeting-pack`, `sketching`, `researching`, `usability-testing`, `reading-analytics`, `analyzing-interviews`)
+- Trigger tests for the v0.6.0 skills in a fresh session, and real use of the slides step in `presenting`
 - A `design-qa` mode that does a side-by-side diff against the prior version of a design
 - A visual companion for `brainstorming` (the upstream-style local browser for mockups during dialogue)
 - An eval corpus for skill triggering — does `exploring-options` actually fire under deadline pressure?

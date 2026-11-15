@@ -45,14 +45,22 @@ When multiple skills could apply:
 "Help me design X" → `brainstorming` first (which calls `exploring-options` internally).
 "Capture the spec for X" → `writing-spec`.
 "Check this design" → `design-qa` or `critiquing`.
-"Prep for a stakeholder meeting" → `presenting`.
+"Make it clickable", "prototype this" → `prototyping`.
+"New domain", "never worked in X", "joining a company in Y" → `learning-a-domain`, before `brainstorming`.
+"Prep for a call or meeting", "what did we decide last time", "questions to ask" → `meeting-pack`. If design work will be shown, `presenting` comes right after it.
+"Prep a presentation, deck or demo for stakeholders" → `presenting`.
+"Research X", "how do others do Y", "what do users complain about" → `researching`.
+"Usability test", "test this with users", "write a test script", "what did the sessions show" → `usability-testing`.
+"Where do users drop off", "what does the data say", "did the redesign work" → `reading-analytics`.
+"Analyze these interviews", "themes from the transcripts", "what did people say in the interviews" → `analyzing-interviews`.
+"Possible layouts", "wireframe this", "draw the flow", "draw it in FigJam" → `sketching`. A request to design something new still starts with `brainstorming`.
 "Review or design an AI chat, assistant, agent or playground UI: streamed answers, reasoning, tool calls, citations" → `designing-model-output` first. It comes before `handoff` and `design-qa` even when the request says "before handing it to engineering", because those two do not know a model stream's states.
 
 ## Skill Types
 
 **Rigid** (`brainstorming`, `exploring-options`): Follow the rules. Don't adapt away the discipline. These exist because designers under pressure skip them.
 
-**Flexible** (`critiquing`, `design-qa`, `writing-spec`, `presenting`, `handoff`, `learning-a-domain`, `designing-model-output`): Adapt principles to context.
+**Flexible** (`critiquing`, `design-qa`, `writing-spec`, `presenting`, `handoff`, `learning-a-domain`, `designing-model-output`, `meeting-pack`, `researching`, `sketching`, `usability-testing`, `reading-analytics`, `analyzing-interviews`): Adapt principles to context.
 
 The skill itself tells you which.
 
@@ -71,7 +79,7 @@ These thoughts mean STOP — you're rationalizing:
 | "Spacing/alignment is close enough" | Close enough ships as wrong. Run `design-qa` before handoff. |
 | "Accessibility is a follow-up" | It's a constraint, not a phase. Build it in from the start. |
 | "This is a small change, no need to critique" | Small changes drift the system. Critique anyway. |
-| "I'll figure out the meeting on the fly" | Unprepared meetings cost decisions. Use `presenting`. |
+| "I'll figure out the meeting on the fly" | Unprepared meetings cost decisions. Use `meeting-pack`, then `presenting` when work is shown. |
 | "I don't need a skill, I've designed this before" | You've designed *something*. This is different. |
 | "Let me just sketch first, I'll frame later" | You won't. Frame first. |
 

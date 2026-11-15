@@ -24,7 +24,7 @@ This is **not** engineering review. This is the pass you'd want a sharp peer to 
 Two modes:
 
 ### Mode A — Figma link
-The user pastes a Figma URL. Use the Figma MCP (`figma-remote` tools) to fetch:
+The user pastes a Figma URL. Use the connected Figma MCP server to fetch:
 - `get_design_context` — structure and variables
 - `get_screenshot` — visual reference
 - `get_variable_defs` — token usage

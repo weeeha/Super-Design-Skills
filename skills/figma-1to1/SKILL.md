@@ -71,10 +71,10 @@ Phase 5: Final Visual Diff      (the proof)
 
 Steps:
 
-1. **Get Figma variables.** Use `figma-remote:get_variable_defs` for the file. Pull all colors, spacing scales, radii, type styles, shadows.
+1. **Get Figma variables.** Use the connected Figma MCP's `get_variable_defs` for the file. (Tool names in this skill carry no server prefix, because the prefix depends on the setup.) Pull all colors, spacing scales, radii, type styles, shadows.
 
 2. **If Figma has no variables** (common — designer never tokenized):
-   - Walk every layer via `figma-remote:get_metadata` and `get_design_context`
+   - Walk every layer via `get_metadata` and `get_design_context`
    - Extract every unique color used → cluster near-duplicates (#3b82f6 and #3b83f8 are probably the same intent)
    - Extract every unique spacing value → cluster to a scale (e.g., 4, 8, 12, 16, 24, 32, 48, 64)
    - Extract every unique radius
@@ -133,7 +133,7 @@ Detailed loop:
 
 3. **Take implementation screenshot.** Use `Claude_Preview:preview_screenshot` at the component's URL.
 
-4. **Pull Figma reference screenshot.** Use `figma-remote:get_screenshot` for the exact frame, at matching dimensions.
+4. **Pull Figma reference screenshot.** Use `get_screenshot` for the exact frame, at matching dimensions.
 
 5. **Visually compare** — Claude reads both images and produces a structured mismatch list:
 
@@ -231,10 +231,10 @@ Phase 5 mirrors `design-qa` output format because it IS design-QA, applied to th
 
 | Need | Tool |
 |---|---|
-| Read Figma variables | `figma-remote:get_variable_defs` |
-| Read Figma component context | `figma-remote:get_design_context` |
-| Reference screenshots | `figma-remote:get_screenshot` |
-| Figma layer/metadata walk | `figma-remote:get_metadata` |
+| Read Figma variables | `get_variable_defs` |
+| Read Figma component context | `get_design_context` |
+| Reference screenshots | `get_screenshot` |
+| Figma layer/metadata walk | `get_metadata` |
 | Find shadcn primitives | `Shadcn_UI:get_component`, `get_component_demo` |
 | Install shadcn components | `bunx shadcn@latest add <name>` |
 | Start dev server | `Claude_Preview:preview_start` |
