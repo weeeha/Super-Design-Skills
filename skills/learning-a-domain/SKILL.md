@@ -1,6 +1,6 @@
 ---
 name: learning-a-domain
-description: Use when ramping into an unfamiliar product domain - permissions, fintech, claims, trades, healthcare, ad-tech, supply chain, education, etc. Produces a designer's-eye summary of the domain
+description: Use when ramping into an unfamiliar product domain - permissions, fintech, claims, trades, healthcare, ad-tech, supply chain, education, etc. - "I'm joining a company in X", "never worked in Y", "explain this industry to me", or before interviews or a first meeting in a field the user does not know
 ---
 
 # Learning a Domain

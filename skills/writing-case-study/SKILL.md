@@ -48,7 +48,7 @@ Check for:
 - **`SuperDesign:exploring-options` output** → alternatives considered + tradeoffs
 - **`SuperDesign:presenting` script** → stakeholder framing
 - **`SuperDesign:verifying-before-shipping` checklist** → impact / honesty checks
-- **Figma file** via `figma-remote:get_screenshot` → visuals for the case study
+- **Figma file** via the connected Figma MCP's `get_screenshot` → visuals for the case study
 
 If those exist, summarize what you pulled and tell the user:
 
@@ -280,7 +280,7 @@ Default to generalization. User can opt into specificity per output.
 ## Pairs With
 
 - `writing-spec`, `exploring-options`, `presenting`, `verifying-before-shipping` — this skill pulls from their outputs if they exist
-- `figma-remote:get_screenshot` — for visuals
+- `get_screenshot` (connected Figma MCP) — for visuals
 - `learning-a-domain` — if you're case-studying a domain you ramped into recently, that skill's output gives useful context
 
 ## Iteration Notes (v0.1)

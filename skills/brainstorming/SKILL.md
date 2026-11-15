@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: Use before any product-design work - new feature, screen, flow, system, or modification. Refines ideas through dialogue, frames the problem, explores approaches, and aligns on direction before pixels
+description: Use before any product-design work - new feature, screen, flow, system, or modification - when the user says "help me design X", "we need a screen for Y", "I have an idea", or is about to produce pixels or UI code without a framed problem
 ---
 
 # Brainstorming

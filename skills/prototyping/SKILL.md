@@ -1,13 +1,13 @@
 ---
 name: prototyping
-description: Use when building a clickable code prototype from Figma designs - for user testing, stakeholder demos, motion review, or de-risking before engineering handoff
+description: Use when building a clickable code prototype - from Figma designs, screenshots, a sketch, a written idea, or a change to an existing live app - for user testing, stakeholder demos, or de-risking before engineering handoff
 ---
 
 # Prototyping
 
 ## Overview
 
-Turn Figma designs into a clickable, runnable browser prototype. **Vite + React + TypeScript + Tailwind + shadcn**, opinionated defaults, throwaway code quality. Goal: from "I have screens in Figma" to "here's a URL you can click" in under 30 minutes.
+Turn designs into a clickable, runnable browser prototype. The source can be Figma frames, screenshots, a sketch, a written idea, or an app that already exists. **Vite + React + TypeScript + Tailwind + shadcn**, opinionated defaults, throwaway code quality. Goal: from "I have screens in Figma" to "here's a URL you can click" in under 30 minutes.
 
 This is NOT a production codebase. The prototype's job is to feel real enough to test or demo. The code is meant to be deleted after the design decision lands.
 
@@ -27,10 +27,10 @@ This is NOT a production codebase. The prototype's job is to feel real enough to
 
 ## Inputs
 
-Two modes, mirroring `design-qa`:
+Four modes. A and B mirror `design-qa`. C and D start without finished designs:
 
 ### Mode A — Figma link (preferred)
-User provides a Figma URL. Use the Figma MCP (`figma-remote` namespace):
+User provides a Figma URL. Use the connected Figma MCP server. Tool names below carry no server prefix, because the prefix depends on the setup:
 - `get_design_context` — structure, hierarchy, variants
 - `get_screenshot` — visual reference per frame
 - `get_variable_defs` — design tokens (colors, spacing, typography)
@@ -42,23 +42,46 @@ Richest mode. Use this whenever possible.
 ### Mode B — Screenshots
 User pastes/uploads images. Visual analysis only. Tokens have to be inferred. Lossier but works for designs you can't link to.
 
-**Ask which mode** if it's unclear. Both can mix (Figma for structure, screenshot for one missing screen).
+### Mode C - Sketch or written idea
+The source is a `sketching` output, a spec, or a paragraph. There is no visual source of truth, so:
+- Take the layout from the sketch and the content from the spec
+- Use shadcn defaults, or the project's design system when the user names one. Do not invent a brand
+- Record every visual decision the source did not make in the README, under "Decisions I made"
+
+### Mode D - Existing live app
+The user wants to try a change inside a product that already exists, and gives a URL or a repo.
+- With a repo that is the user's to change: reuse its components and tokens, on a branch
+- With only a URL: capture the current screens, match the look in Tailwind, and build in a separate folder
+- Prototype only the flow that changes. Screens that are just context can stay as static screenshots
+
+**Ask which mode** if it's unclear. Modes can mix (Figma for structure, screenshot for one missing screen, a sketch for the screen nobody has designed yet).
 
 ## The Process
 
 ### 1. Read the design
 
 In Mode A:
-1. Call `mcp__figma-remote__get_metadata` to see the frame structure
+1. Call `get_metadata` to see the frame structure
 2. Identify which frames are "screens" vs which are "components/states"
-3. Call `mcp__figma-remote__get_design_context` on each screen frame
-4. Call `mcp__figma-remote__get_variable_defs` to pull color/spacing/type tokens
-5. Call `mcp__figma-remote__get_screenshot` on each screen for visual reference
+3. Call `get_design_context` on each screen frame
+4. Call `get_variable_defs` to pull color/spacing/type tokens
+5. Call `get_screenshot` on each screen for visual reference
 
 In Mode B:
 1. Read each screenshot
 2. Identify screens, components, states
 3. Infer colors, spacing (round to Tailwind scale: 4, 8, 12, 16, 24, 32, 48), typography
+
+In Mode C:
+1. Read the sketch or spec. List the screens and the one flow to click through
+2. Collect the real content: labels, object names, realistic counts
+3. List every visual decision the source does not make. You will make them and report them
+
+In Mode D:
+1. Open the app in a browser tool, or read the repo's routes and components
+2. Capture the current screens the change touches
+3. Pull the look from the repo's tokens, or from computed styles: font, radius, spacing, colors
+4. Mark which screens change and which are only context
 
 Note what you can't determine — flag it in the README later.
 
@@ -95,6 +118,8 @@ Proceed?
 Wait for "yes" before scaffolding. Don't burn time on the wrong shape.
 
 ### 3. Scaffold
+
+Mode D with a repo: skip this step. Work on a branch of that repo and put the changed screens behind their own route. Every other case, including Mode C and Mode D with only a URL, scaffolds in `prototypes/` as below.
 
 Create the prototype directory:
 
@@ -139,6 +164,8 @@ Build screen-by-screen. For each screen:
 5. Wire navigation: `useNavigate` from `react-router-dom`
 6. Wire local state: `useState` (no global state, no zustand, no redux)
 
+In Mode C there are no Figma variables: compose from the sketch with shadcn defaults. In Mode D, match the look captured in step 1 instead.
+
 ### 5. Wire clickability
 
 **Clickable level (default):**
@@ -166,7 +193,7 @@ In the prototype directory, write a `README.md`:
 ```markdown
 # <Topic> — Clickable Prototype
 
-Built from: <Figma URL or "screenshots">
+Built from: <Figma URL, "screenshots", sketch or spec link, or the app's URL>
 Built on: YYYY-MM-DD
 
 ## Run
@@ -203,6 +230,10 @@ Opens at http://localhost:5173.
 
 - <thing 1, e.g. "icon X not available in lucide, substituted with similar">
 - <thing 2>
+
+## Decisions I made (Modes C and D only)
+
+- <visual or layout decision the source did not make, e.g. "two-column layout on the detail screen">
 
 ## Stack
 
@@ -298,7 +329,7 @@ Keep flat. No nested feature folders. Throwaway = readable, not "scalable."
 - **Forgetting the README.** Without it, the prototype is unintelligible 3 days later. Always write it.
 - **Trying to match pixel-perfect.** Close enough is the goal. If a shadow is 4px off, leave it. If a color is one Tailwind step off, leave it.
 - **Skipping the plan step.** Scaffolding without a plan wastes 20 minutes when you discover you needed a different shadcn primitive.
-- **Building components that don't exist in Figma.** Prototype what's there, not what should be there.
+- **Building components that don't exist in Figma.** Prototype what's there, not what should be there. (Modes A and B. In Modes C and D you do make decisions; list them in the README.)
 
 ## Common Rationalizations
 
@@ -314,6 +345,7 @@ Keep flat. No nested feature folders. Throwaway = readable, not "scalable."
 ## Pairs With
 
 - `exploring-options` — test one of the directions you generated
+- `sketching` - the chosen sketch is the source for Mode C
 - `design-qa` — after the prototype is built, QA the visual fidelity against the Figma
 - `presenting` — the prototype becomes the demo in stakeholder reviews
 - `handoff` — prototype de-risks what engineering will build; handoff doc references it

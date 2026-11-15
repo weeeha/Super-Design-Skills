@@ -1,6 +1,6 @@
 ---
 name: presenting
-description: Use when preparing to show design work to stakeholders - internal crits, PM/Eng design reviews, exec/leadership reviews, user research readouts, customer/sales previews, or async loom/doc walkthroughs
+description: Use when preparing to show or present design work to stakeholders - a presentation, deck, slides, demo, pitch or walkthrough for internal crits, PM/Eng design reviews, exec/leadership reviews, user research readouts, customer/sales previews, or async loom/doc walkthroughs
 ---
 
 # Presenting
@@ -26,9 +26,11 @@ Six archetypes. Each has a different audience, decision ask, and pacing.
 
 **Ask the user which type** before generating the script. If unclear, propose the most likely two and ask.
 
+**Start from the pack.** If a `meeting-pack` exists for this meeting, take the audience, the history and the open decisions from it instead of asking again. The pack's own meeting type is not one of the six above: still pick one, proposing the closest.
+
 ## The Universal Structure
 
-Every presentation has these beats, tuned to the meeting type:
+These are the beats a presentation draws from. The meeting type decides which are kept and how long each gets:
 
 1. **The hook** — why this matters right now
 2. **The problem** — the framing from `brainstorming`
@@ -38,7 +40,7 @@ Every presentation has these beats, tuned to the meeting type:
 6. **The risks / open questions** — what could go wrong, what we don't know
 7. **The decision ask** — what you need from this meeting
 
-Different meeting types weight these beats differently. See sections below.
+Different meeting types weight these beats differently, and some drop a beat entirely (an internal crit skips the hook). See sections below.
 
 ## Per-Meeting-Type Playbook
 
@@ -131,6 +133,7 @@ For any meeting type, produce:
 2. **The decision ask** — one specific question to put on the table
 3. **Anticipated pushback** — top 2-3 likely objections + how you'd respond
 4. **What to cut if running long** — what's nice-to-have vs core
+5. **A slide list**, when the meeting needs a deck (see Slides below)
 
 ### Output Template
 
@@ -160,7 +163,23 @@ For any meeting type, produce:
 ### Cut-list if running long
 - [least-essential beat]
 - [next least-essential]
+
+### Slide list (only when there is a deck)
+| # | Beat | Title (the claim, as a sentence) | Shows |
+|---|---|---|---|
+| 1 | Hook | ... | [real screenshot / frame / recording] |
 ```
+
+## Slides (when the meeting needs a deck)
+
+Script first, slides second. The slides illustrate the beats; they never replace the script.
+
+1. **Ask where the deck lives.** Which tool (Figma Slides, Keynote, Google Slides, a doc), and whether the team has a template. Build it there when a tool for it is connected. Otherwise hand over the slide list for the user to fill.
+2. **One slide per beat.** The walkthrough beat may take two or three. Rough sizes: exec review 5 to 7 slides, design review 8 to 12, internal crit none (open the file instead).
+3. **The title is the claim.** "Three of five users missed the filter", not "Filters". Someone who reads only the titles should get the argument.
+4. **One artifact per slide, and it is the real work.** A screenshot, a frame, a prototype recording. Do not redraw the work for the deck; redrawn work drifts from what will ship.
+5. **Async decks stand alone.** Each slide gets one line of speaker note written out, because nobody will be there to say it.
+6. **Rehearse the hard part.** You ask, the user answers: the five hardest questions this audience could raise, one at a time. Tighten each answer the user gives and put it into "Anticipated pushback", replacing the drafted response for that question.
 
 ## Common Rationalizations
 
@@ -185,3 +204,6 @@ For any meeting type, produce:
 - `exploring-options` — the options feed the "What we tried" beat
 - `writing-spec` — if a spec exists, it's the source material for the presentation
 - `design-qa` — fix QA blockers BEFORE the share. Don't present broken work.
+- `meeting-pack` - comes before this skill. It supplies the audience, what was decided last time and the open decisions.
+- `prototyping` - a clickable demo for the walkthrough beat.
+- `sketching` - the sketches not chosen are material for the "What we tried" beat.
